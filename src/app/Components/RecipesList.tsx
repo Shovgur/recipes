@@ -1,4 +1,5 @@
-import { Recipe } from '../data/recipes';
+import Link from "next/link";
+import { Recipe } from "../data/recipes";
 
 interface RecipesListProps {
   recipes: Recipe[];
@@ -6,10 +7,14 @@ interface RecipesListProps {
 
 const RecipesList: React.FC<RecipesListProps> = ({ recipes }) => {
   return (
-    <div>
+    <>
       <h1 className="text-2xl font-bold mb-4">Список рецептов</h1>
-      {recipes.map(recipe => (
-        <div key={recipe.id} className="border p-4 mb-4">
+      {recipes.map((recipe) => (
+        <Link
+          href={`/recipes/${recipe.id}`}
+          key={recipe.id}
+          className="border p-4 mb-4"
+        >
           <h2 className="text-xl font-bold mb-2">{recipe.title}</h2>
           <img src={recipe.image} alt={recipe.title} className="w-full mb-2" />
           <p>{recipe.description}</p>
@@ -25,9 +30,9 @@ const RecipesList: React.FC<RecipesListProps> = ({ recipes }) => {
               <li key={index}>{instruction}</li>
             ))}
           </ol>
-        </div>
+        </Link>
       ))}
-    </div>
+    </>
   );
 };
 

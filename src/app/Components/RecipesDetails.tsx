@@ -6,7 +6,7 @@ interface RecipeDetailsProps {
 
 const RecipeDetails: React.FC<RecipeDetailsProps> = ({ recipe }) => {
   return (
-    <div>
+    <>
       <h1 className="text-2xl font-bold mb-4">{recipe.title}</h1>
       <img src={recipe.image} alt={recipe.title} className="w-full mb-4" />
       <p>{recipe.description}</p>
@@ -22,7 +22,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({ recipe }) => {
           <li key={index}>{instruction}</li>
         ))}
       </ol>
-    </div>
+    </>
   );
 };
 
