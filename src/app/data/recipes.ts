@@ -5,6 +5,7 @@ export interface Recipe {
   description: string;
   ingredients: string[];
   instructions: string[];
+  tags: string[];
 }
 
 export const recipes: Recipe[] = [
@@ -18,6 +19,7 @@ export const recipes: Recipe[] = [
       "Шаг 1: Смешайте все ингредиенты",
       "Шаг 2: Выпекайте в духовке",
     ],
+    tags: ["сладкое", "печенье"],
   },
   {
     id: 2,
@@ -30,5 +32,6 @@ export const recipes: Recipe[] = [
       "Шаг 2: Заложите ягоды",
       "Шаг 3: Выпекайте",
     ],
+    tags: ["сладкое", "пирог", "ягоды"],
   },
 ];
