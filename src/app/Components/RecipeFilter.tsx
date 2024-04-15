@@ -1,5 +1,4 @@
-// components/RecipeFilter.tsx
-import React, { useState } from "react";
+import { useState } from "react";
 import { Recipe } from "../data/recipes";
 
 interface RecipeFilterProps {
@@ -22,7 +21,11 @@ const RecipeFilter: React.FC<RecipeFilterProps> = ({ recipes, onFilter }) => {
 
   const getAllTags = (recipes: Recipe[]): string[] => {
     return recipes.reduce((tags, recipe) => {
-      return tags.concat(recipe.tags.map((tag) => tag.toLowerCase()));
+      if (recipe.tags) {
+        return tags.concat(recipe.tags.map((tag) => tag.toLowerCase()));
+      } else {
+        return tags;
+      }
     }, [] as string[]);
   };
 
